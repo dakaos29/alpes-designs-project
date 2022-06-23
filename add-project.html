@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Project</title>
+    <link rel="stylesheet" href="/css/custom.css">
+
+</head>
+<body>
+     <div class="container my-5">
+
+        <h1>Añadir Proyecto:</h1>
+
+        <form id="formulario">
+            <div class="mb-3">
+                <label for="name-project" class="form-label">Nombre del Proyecto: </label>
+                <input type="text"
+                        id="name-project"
+                        class="form-control"
+                        placeholder="Ingresa aqui el nombre del proyecto"
+                        name="name-project-campo"
+                >
+            </div>
+
+            <div class="mb-3">
+                <label for="name-client" class="form-label">Nombre del Cliente: </label>
+                <input type="text"
+                        id="name-client"
+                        class="form-control"
+                        placeholder="Ingresa aqui el nombre del cliente"
+                        name="name-client-campo"
+                >
+            </div>
+            <div class="mb-3">
+                <label for="direction-client" class="form-label">Direccion: </label>
+                <input type="text"
+                        id="direction-client"
+                        class="form-control"
+                        placeholder="Ingresa aqui la direccion"
+                        name="direction-client-campo"
+                >
+            </div>
+            <div class="mb-3">
+                <label for="validationCustom04" class="form-label">Vendedor</label>
+                <select class="form-select" id="validationCustom04" required>
+                  <option selected disabled value="">Choose...</option>
+                  <option>A. Albelais</option>
+                  <option>D. Albelais</option>
+                  <option>M. Ballesteros</option>
+                </select>
+              </div>
+                <!-- <div class="mb-3">
+                    <input type="checkbox" 
+                    name="checkCampo" 
+                    id="checkbox"
+                    class="form-check-input"
+                    >
+                    <label for="checkbox" class="form-check-label">Checkbox</label>
+                </div> -->
+
+                <div class="d-grid gap-2 my-5">
+                    <button 
+                    id="btnEnviar" 
+                    class="btn btn-primary" 
+                    type="submit">Enviar</button>
+
+                    <button  
+                          id="btnCargando" 
+                          class="btn btn-primary d-none" 
+                          type="button" 
+                          disabled>
+                        <span class="spinner-grow spinner-grow-sm" role="status" aria-hidden="true"></span>
+                        Cargando...
+                      </button>
+                      <!-- <button class="btn btn-primary" type="button" disabled>
+                        <span class="spinner-grow spinner-grow-sm" role="status" aria-hidden="true"></span>
+                        Cargando...
+                      </button> -->
+             </div>
+        </form>
+    </div>
+</body>
+</html>
