@@ -1,71 +1,120 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Add Project</title>
-    <link rel="stylesheet" href="/css/custom.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
 
 </head>
 <body>
-     <div class="container my-5">
+  <nav class="navbar bg-info">
+    <div class="container-fluid">
+      <a href="projects-options.html" class="navbar-brand">Alpes Designs Projects</a>
+    </div>
+  </nav>
+  
+     <div class="container my-5 py-5">
 
         <h1>Añadir Proyecto:</h1>
 
-        <form id="formulario">
-            <div class="mb-3">
-                <label for="name-project" class="form-label">Nombre del Proyecto: </label>
-                <input type="text"
-                        id="name-project"
-                        class="form-control"
-                        placeholder="Ingresa aqui el nombre del proyecto"
-                        name="name-project-campo"
-                >
-            </div>
+        <main class="container mt-n5 bg-light">
+        <form action="proyecto.php" 
+      method="post"
+      class="row g-3 needs-validation"
+      onkeyup='enablSubmit()'
+      id="formulario" novalidate>
 
-            <div class="mb-3">
-                <label for="name-client" class="form-label">Nombre del Cliente: </label>
-                <input type="text"
-                        id="name-client"
-                        class="form-control"
-                        placeholder="Ingresa aqui el nombre del cliente"
-                        name="name-client-campo"
-                >
-            </div>
-            <div class="mb-3">
-                <label for="direction-client" class="form-label">Direccion: </label>
-                <input type="text"
-                        id="direction-client"
-                        class="form-control"
-                        placeholder="Ingresa aqui la direccion"
-                        name="direction-client-campo"
-                >
-            </div>
-            <div class="mb-3">
-                <label for="validationCustom04" class="form-label">Vendedor</label>
-                <select class="form-select" id="validationCustom04" required>
+        <div class="col-mb-3">
+          <label for="project01" class="form-label">Numero de Orden</label>
+          <input 
+          type="text" 
+          class="form-control requ"
+          onkeyup='enablSubmit()'
+          placeholder="Ingresa aqui el numero de orden" 
+          id="project01" 
+          name="no_orden" required>
+        </div>
+
+        <div class="col-mb-3">
+          <label for="project02" class="form-label">Nombre del Proyecto: </label>
+          <input 
+          type="text" 
+          class="form-control requ"
+          onkeyup='enablSubmit()'
+          placeholder="Ingresa aqui el nombre del proyecto" 
+          id="project02" 
+          name="nombre_proyecto" required>
+        </div>
+
+        <div class="col-mb-3">
+          <label for="project03" class="form-label">Nombre del Cliente: </label>
+          <input 
+          type="text" 
+          class="form-control requ"
+          onkeyup='enablSubmit()'
+          placeholder="Ingresa aqui el nombre del cliente" 
+          id="project03" 
+          name="nombre_cliente" required>
+        </div>
+
+        <div class="col-mb-3">
+          <label for="project04" class="form-label">Direccion: </label>
+          <input 
+          type="text" 
+          class="form-control requ"
+          onkeyup='enablSubmit()'
+          placeholder="Ingresa aqui la direccion del proyecto" 
+          id="project04" 
+          name="direccion" required>
+        </div>
+
+        <div class="col-mb-3">
+          <label for="project05" class="form-label">Estado: </label>
+          <input 
+          type="text" 
+          class="form-control requ"
+          onkeyup='enablSubmit()'
+          placeholder="Ingresa aqui el estado donde se encuentra la direccion" 
+          id="project05"
+          name="estado" required>
+        </div>
+            
+            <div class="col-mb-3">
+                <label for="project06" 
+                class="form-label requ" 
+                onkeyup='enablSubmit()'>Vendedor</label>
+                <select class="form-select" 
+                id="project06"
+                name="vendedor" required>
                   <option selected disabled value="">Choose...</option>
                   <option>A. Albelais</option>
                   <option>D. Albelais</option>
                   <option>M. Ballesteros</option>
                 </select>
               </div>
-                <!-- <div class="mb-3">
-                    <input type="checkbox" 
-                    name="checkCampo" 
-                    id="checkbox"
-                    class="form-check-input"
-                    >
-                    <label for="checkbox" class="form-check-label">Checkbox</label>
-                </div> -->
 
-                <div class="d-grid gap-2 my-5">
-                    <button 
-                    id="btnEnviar" 
-                    class="btn btn-primary" 
-                    type="submit">Enviar</button>
+              <div class="col-mb-3">
+                <label for="project07" 
+                class="form-label requ" 
+                onkeyup='enablSubmit()'>Etapa</label>
+                <select class="form-select" 
+                id="project07"
+                name="etapa" required>
+                  <option selected disabled value="">Choose...</option>
+                  <option>1</option>
+                  <option>2</option>
+                  <option>3</option>
+                  <option>4</option>
+                </select>
+              </div>
 
+                <div class="col-12">
+                  <input type="submit" class="btn btn-primary" name="submit" value="Guardar"/>
+                </div>
+                
+<!-- 
                     <button  
                           id="btnCargando" 
                           class="btn btn-primary d-none" 
@@ -74,12 +123,13 @@
                         <span class="spinner-grow spinner-grow-sm" role="status" aria-hidden="true"></span>
                         Cargando...
                       </button>
-                      <!-- <button class="btn btn-primary" type="button" disabled>
+                      <button class="btn btn-primary" type="button" disabled>
                         <span class="spinner-grow spinner-grow-sm" role="status" aria-hidden="true"></span>
                         Cargando...
-                      </button> -->
-             </div>
+                      </button>
+            </div> -->
         </form>
+        </main>
     </div>
 </body>
 </html>

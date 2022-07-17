@@ -10,8 +10,8 @@
 </head>
 <body>
 
-   <!-- navbar -->
-   <nav id="navbar-example3" class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+    <!-- navbar -->
+  <nav id="navbar-example3" class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
     <div class="container">
     <a href="/index.html" class="navbar-brand">
      <span class="align-middle">Alpes Designs Projects</span> 
@@ -70,29 +70,53 @@
   </nav>
   <!-- navbar -->
 
-<div class="container py-5 my-5">
-        <div class="row">
-            <div class="col-sm-6">
-              <div class="card text-center">
-                <div class="card-body">
-                  <h5 class="card-title my-5">Login</h5>
-                  <p class="card-text">Inicio de sesion para proyectos</p>
-                  <a href="login-projects.html" class="btn btn-primary w-100 my-5">Go</a>
-                </div>
-              </div>
+  <!-- formularios -->
+  <div class="container my-5 py-5">
+
+    <h1>Inicia Sesion</h1>
+
+    <form action="validar-empleado.php" 
+    method="post" 
+    id="formulario">
+        <div class="mb-3">
+            <label for="email" class="form-label">Email: </label>
+            <input type="email"
+                    id="correo"
+                    class="form-control"
+                    placeholder="Ingresa tu Email"
+                    aria-describedby="emailHelp"
+                    name="correo"
+                    required
+            >
+        </div>
+            <div class="mb-3">
+                <label for="contraseña" class="form-label">Contraseña:</label>
+                <input type="password"
+                class="form-control"
+                placeholder="Ingresa tu contraseña"
+                id="password"
+                name="password"
+                required
+                >
             </div>
-            <div class="col-sm-6">
-              <div class="card text-center">
-                <div class="card-body">
-                  <h5 class="card-title my-5">Sign In</h5>
-                  <p class="card-text">Crear un usuario para iniciar sesion</p>
-                  <a href="sign-projects.html" class="btn btn-primary w-100 my-5">Go</a>
-                </div>
-              </div>
+
+            <div class="col-12">
+              <input type="submit" class="btn btn-success" name="submit" value="Ingresar" id="btnEnviar" />
             </div>
-          </div>
+         
+    </form>
+</div>
+
+   <!-- formularios -->
+<div class="container text-center">
+    <div class="card">
+        <div class="card-body">
+            <a href="#" class="card-link">Olvidaste tu contraseña?</a>
+            <a href="sign-empleados.php" class="card-link">Aun no estas registrado? Registrate aqui</a>
+        </div>
+    </div>    
 </div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
-</body>
+  </body>
 </html>

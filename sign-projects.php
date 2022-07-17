@@ -1,3 +1,87 @@
+<?php
+include ('connectdb.php');
+
+if(isset($_POST['submit'])){
+
+  if ( !empty($_POST['correo']))
+  {
+    $nombres = $_POST['nombres'];
+    $apellidos = $_POST['apellidos'];
+    $correo = $_POST['correo'];
+    $password = $_POST['password'];
+    $puesto = $_POST['puesto'];
+
+
+    
+    if(isset($_POST['nombres'])){
+        $nombres = filter_var(trim($_POST['nombres']), FILTER_SANITIZE_STRING); 
+   
+    }
+    if(isset($_POST['apellidos'])){
+        $apellidos = filter_var(trim($_POST['apellidos']), FILTER_SANITIZE_STRING); 
+   
+    }
+    if(isset($_POST['correo'])){
+        $correo = filter_var(trim($_POST['correo']), FILTER_SANITIZE_EMAIL); 
+   
+    }
+    if(isset($_POST['password'])){
+        $password = filter_var(trim($_POST['password']), FILTER_SANITIZE_STRING); 
+   
+    }
+    if(isset($_POST['puesto'])){
+        $puesto = filter_var(trim($_POST['puesto']), FILTER_SANITIZE_STRING); 
+   
+    }
+
+    if(empty($nombres)){
+        echo json_encode(array(
+            'error' => true,
+            'campo' => 'nombres'
+        ));
+        return;
+    }
+
+    if(empty($apellidos)){
+        echo json_encode(array(
+            'error' => true,
+            'campo' => 'apellidos'
+        ));
+        return;
+    }
+    if(empty($correo)){
+        echo json_encode(array(
+            'error' => true,
+            'campo' => 'correo'
+        ));
+        return;
+    }
+    if(empty($password)){
+        echo json_encode(array(
+            'error' => true,
+            'campo' => 'password'
+        ));
+        return;
+    }
+    if(empty($puesto)){
+        echo json_encode(array(
+            'error' => true,
+            'campo' => 'puesto'
+        ));
+        return;
+    }
+
+    $query = "INSERT INTO empleados (id_empleado, nombres, apellidos, correo, password, puesto) VALUES (NULL,'$nombres','$apellidos','$correo','$password','$puesto')";
+    $run = mysqli_query($conn, $query) or die (mysqli_error());
+    if($run){
+      echo 'data submitted';
+    } else {
+      echo 'data wa not submitted';
+    }
+  }
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -10,8 +94,8 @@
 </head>
 <body>
 
-    <!-- navbar -->
-  <nav id="navbar-example3" class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+   <!-- navbar -->
+   <nav id="navbar-example3" class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
     <div class="container">
     <a href="/index.html" class="navbar-brand">
      <span class="align-middle">Alpes Designs Projects</span> 
@@ -46,10 +130,10 @@
         </li>
         <li class="nav-item">
           <a 
-          href="login-projects.php" 
+          href="production.html" 
           class="nav-link"
           >
-          For Production
+          For Clients
         </a>
         </li>
         <li class="nav-item">
@@ -60,9 +144,9 @@
           Contact Us
         </a>
         </li>
-        <!-- <li class="nav-item">
+        <li class="nav-item">
             <a href="/login-projects.html" class="nav-link disabled">Inicia Sesion</a>
-          </li> -->
+          </li>
       </ul>
     </div>
 
@@ -78,91 +162,77 @@
     <main class="container mt-n5 bg-light">
       <p class="lead text-center">To enter to the projects options you have to create an account</p>
 
-      <form action="registro.php" 
+      <form action="" 
       method="post"
-      class="row g-3 needs-validation"
-      onkeyup='enableSubmit()'
+      class="row g-3 needs-validation" 
       id="formulario" novalidate>
-
         <div class="col-md-6">
           <label for="validationCustom01" class="form-label">First Name</label>
           <input 
           type="text" 
-          class="form-control req" 
+          class="form-control" 
           id="validationCustom01" 
           name="nombre" required>
           <div class="valid-feedback">Looks good!</div>
           <div class="invalid-feedback">Write a valid name</div>
         </div>
-
         <div class="col-md-6">
           <label for="validationCustom02" class="form-label">Last Name</label>
           <input 
           type="text" 
-          class="form-control req"
-          onkeyup='enableSubmit()'
+          class="form-control" 
           id="validationCustom02" 
           name="apellido" required>
           <div class="valid-feedback">Looks good!</div>
           <div class="invalid-feedback">Write a valid name</div>
         </div>
-
         <div class="col-md-6">
           <label for="validationCustomEmail" class="form-label">Email</label>
             <input 
             type="email" 
-            class="form-control req"
-            onkeyup='enableSubmit()' 
+            class="form-control" 
             id="validationCustomEmail"
             name="email"
             aria-describedby="inputGroupPrepend" required>
             <div class="valid-feedback">Looks good!</div>
             <div class="invalid-feedback">Please provide an email.</div>
           </div>
-
           <div class="col-md-6">
             <label for="validationCustomPassword" class="form-label">Password</label>
               <input 
               type="password" 
-              class="form-control req"
-              onkeyup='enableSubmit()'
+              class="form-control" 
               id="validationCustomPassword" 
               name="password"
               aria-describedby="inputGroupPrepend" required>
               <div class="valid-feedback">Looks good!</div>
               <div class="invalid-feedback">Please put a password.</div>
             </div>
-
             <div class="col-md-3">
               <label for="validationCustom03" class="form-label">Telephone</label>
               <input 
               type="text" 
-              class="form-control req"
-              onkeyup='enableSubmit()'
+              class="form-control" 
               id="validationCustom03" 
               name="telefono" required>
               <div class="valid-feedback">Looks good!</div>
               <div class="invalid-feedback">Please provide your phone number.</div>
             </div>
-
         <div class="col-md-3">
           <label for="validationCustom04" class="form-label">City</label>
           <input 
           type="text" 
-          class="form-control req"
-          onkeyup='enableSubmit()' 
+          class="form-control" 
           id="validationCustom04"
           name="ciudad" required>
           <div class="valid-feedback">Looks good!</div>
           <div class="invalid-feedback">Please provide a valid city.</div>
         </div>
-        
         <div class="col-md-3">
           <label for="validationCustom05" class="form-label">State</label>
           <select
           type="text"
-          class="form-select req"
-          onkeyup='enableSubmit()'
+          class="form-select"
           id="validationCustom05"
           name="estado" required>
             <option selected disabled value="">Choose...</option>
@@ -178,8 +248,7 @@
           <label for="validationCustom06" class="form-label">Zip</label>
           <input 
           type="text" 
-          class="form-control req"
-          onkeyup='enableSubmit()' 
+          class="form-control" 
           id="validationCustom06"
           name="zip" required>
           <div class="valid-feedback">Looks good!</div>
@@ -187,11 +256,25 @@
         </div>
 
         <div class="col-12">
-          <input type="submit" class="btn btn-primary" name="submit" value="Submit" disabled />
+          <div class="form-check">
+            <input 
+            class="form-check-input" 
+            type="checkbox" 
+            name="terms" 
+            id="invalidCheck" required>
+            <label class="form-check-label" for="invalidCheck">
+              Agree to terms and conditions
+            </label>
+            <div class="invalid-feedback">
+              You must agree before submitting.
+            </div>
+          </div>
+        </div>
+        <div class="col-12">
+          <input type="submit" class="btn btn-primary" name="submit" value="submit"/>
           <div class="valid-feedback">User creation success!</div>
                 <div class="invalid-feedback">Server error</div>
         </div>
-        
       </form>
   </main>
 </div>
@@ -230,23 +313,6 @@
 <!-- opciones y offcanvas -->
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
-    
-    <script>
-      function enableSubmit(){
-     let inputs = document.getElementsByClassName('req');
-     let btn = document.querySelector('input[type="submit"]');
-     let isValid = true;
-  
-     for (var i = 0; i < inputs.length; i++){
-       let changedInput = inputs[i];
-       if (changedInput.value.trim() === "" || changedInput.value === null){
-         isValid = false;
-         break;
-       }
-     }
-     btn.disabled = !isValid;
-   }
-    </script>
-
+    <script src="app.js"></script>
 </body>
 </html>

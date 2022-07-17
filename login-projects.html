@@ -10,8 +10,8 @@
 </head>
 <body>
 
-   <!-- navbar -->
-   <nav id="navbar-example3" class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+    <!-- navbar -->
+  <nav id="navbar-example3" class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
     <div class="container">
     <a href="/index.html" class="navbar-brand">
      <span class="align-middle">Alpes Designs Projects</span> 
@@ -46,10 +46,10 @@
         </li>
         <li class="nav-item">
           <a 
-          href="production.html" 
+          href="login-projects.php" 
           class="nav-link"
           >
-          For Clients
+          For Production
         </a>
         </li>
         <li class="nav-item">
@@ -60,9 +60,9 @@
           Contact Us
         </a>
         </li>
-        <li class="nav-item">
+        <!-- <li class="nav-item">
             <a href="/login-projects.html" class="nav-link disabled">Inicia Sesion</a>
-          </li>
+          </li> -->
       </ul>
     </div>
 
@@ -73,60 +73,48 @@
   <!-- formularios -->
   <div class="container my-5 py-5">
 
-    <h1>Inicia Sesion</h1>
+    <h1>Login session</h1>
 
-    <form id="formulario">
+    <form action="validar-cliente.php" 
+    method="post" 
+    id="formulario">
         <div class="mb-3">
             <label for="email" class="form-label">Email: </label>
             <input type="email"
                     id="email"
                     class="form-control"
-                    placeholder="Ingresa aqui tu email"
+                    placeholder="Enter your Email"
                     aria-describedby="emailHelp"
-                    name="emailCampo"
+                    name="email"
                     required
             >
             <div class="form-text" id="emailHelp">
-                No compartiremos tu email con nadie
+                We dont share your information with anybody
             </div>
         </div>
+
             <div class="mb-3">
-                <label for="contraseña" class="form-label">Contraseña</label>
+                <label for="contraseña" class="form-label">Password</label>
                 <input type="password"
                 class="form-control"
-                placeholder="Ingresa tu contraseña"
-                id="contraseña"
-                name="pasCampo"
+                placeholder="Enter your password"
+                id="password"
+                name="password"
                 required
                 >
             </div>
-            <div class="d-grid gap-2">
-                <button 
-                id="btnEnviar" 
-                class="btn btn-primary" 
-                type="submit">Enviar</button>
 
-                <button  
-                      id="btnCargando" 
-                      class="btn btn-primary d-none" 
-                      type="button" 
-                      disabled>
-                    <span class="spinner-grow spinner-grow-sm" role="status" aria-hidden="true"></span>
-                    Cargando...
-                  </button>
-                  <!-- <button class="btn btn-primary" type="button" disabled>
-                    <span class="spinner-grow spinner-grow-sm" role="status" aria-hidden="true"></span>
-                    Cargando...
-                  </button> -->
-         </div>
+            <div class="col-12">
+              <input type="submit" class="btn btn-primary" name="submit" value="Submit"/>
+            </div>
     </form>
 </div>
    <!-- formularios -->
 <div class="container text-center">
     <div class="card">
         <div class="card-body">
-            <a href="#" class="card-link">Olvidaste Contraseña</a>
-            <a href="sign-projects.html" class="card-link">Aun no estas registrado? Registrate aqui</a>
+            <a href="#" class="card-link">Forgot Password?</a>
+            <a href="sign-projects.html" class="card-link">Need an account? Sign it here</a>
         </div>
     </div>    
 </div>

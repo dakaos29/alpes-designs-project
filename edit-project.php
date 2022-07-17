@@ -17,7 +17,7 @@
         <div class='table100 ver1 m-b-110'>    
         <table data-vertable='ver1' class="table table-dark table-striped">
           					<br>
-              				<h2 >PROJECTS DATABASE</h2>
+              				<h2 >TABLA DE PROYECTOS</h2>
           					<br>
                         	<thead class="text-center">
 							<tr class='row100 head'>
@@ -28,6 +28,7 @@
                             <th scope="col-12">State</th>
                             <th scope="col-12">Vendor</th>
                             <th scope="col-12">Stage</th>
+                            <th scope="col-12"></th>
            					</tr>
 							</thead>   
               <tbody>
@@ -50,6 +51,7 @@ while($crow = mysqli_fetch_assoc($result))
 <td><?php echo $crow['estado']; ?></td>
 <td><?php echo $crow['vendedor']; ?></td>
 <td><?php echo $crow['etapa']; ?></td>
+<td><a href="editar-registro.php?editar_no_orden=<?php echo $crow['no_orden']; ?>" class="edit_btn" >Editar</a></td>
 </tr>
 <?php
   	    	}		
@@ -63,51 +65,6 @@ while($crow = mysqli_fetch_assoc($result))
 	</div>
 	</div>
 	</div>
-  <div class="timeline">
-    <div class="containerT left">
-      <div class="content">
-        <h2>Stage 1</h2>
-        <p>Sales: meeting with the client, client needs, sketching.</p>
-      </div>
-    </div>
-    <div class="containerT right">
-      <div class="content">
-        <h2>Stage 2</h2>
-        <p>Preliminary design: lay outs, product specification, aprobation.</p>
-      </div>
-    </div>
-    <div class="containerT left">
-      <div class="content">
-        <h2>Stage 3</h2>
-        <p>Product construction request: authorized budget, materials, fabrication, instalation.</p>
-      </div>
-    </div>
-    <div class="containerT right">
-      <div class="content">
-        <h2>Stage 4</h2>
-        <p>Technical design engineering: huacales, toes, hinges.</p>
-      </div>
-    </div>
-    <div class="containerT left">
-      <div class="content">
-        <h2>Stage 5</h2>
-        <p>Doors, drawers, system box.</p>
-      </div>
-    </div>
-    <div class="containerT right">
-      <div class="content">
-        <h2>Final Stage</h2>
-        <p>Your project is on your way to install.</p>
-      </div>
-    </div>
-  </div>
-  
  
-</body>
-</html>
-
-
-  
-
 </body>
 </html>
