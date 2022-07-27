@@ -66,37 +66,25 @@ $row = mysqli_fetch_array($query);
       <div class="containerT left">
         <div class="content">
           <h2>Stage 1</h2>
-          <p>Sales: meeting with the client, client needs, sketching.</p>
+          <p>Design: Your project is in the design department checking details.</p>
         </div>
       </div>
       <div class="containerT right">
         <div class="content">
           <h2>Stage 2</h2>
-          <p>Preliminary design: lay outs, product specification, aprobation.</p>
+          <p>Production: Your project is in the production area, we are assembling your order.</p>
         </div>
       </div>
       <div class="containerT left">
         <div class="content">
           <h2>Stage 3</h2>
-          <p>Product construction request: authorized budget, materials, fabrication, instalation.</p>
+          <p>Installation: We are ready to bring your project to you. Our installers are in your way.</p>
         </div>
       </div>
       <div class="containerT right">
         <div class="content">
           <h2>Stage 4</h2>
-          <p>Technical design engineering: huacales, toes, hinges.</p>
-        </div>
-      </div>
-      <div class="containerT left">
-        <div class="content">
-          <h2>Stage 5</h2>
-          <p>Doors, drawers, system box.</p>
-        </div>
-      </div>
-      <div class="containerT right">
-        <div class="content">
-          <h2>Final Stage</h2>
-          <p>Your project is on your way to install.</p>
+          <p>Final Stage: Your project is ready. Need help? Some feedback? Contact Us. </p>
         </div>
       </div>
     </div>

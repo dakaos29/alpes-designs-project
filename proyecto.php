@@ -119,6 +119,6 @@ if(isset($_POST['submit'])){
     
     
   }
-  header('Location: see-project.php');
+  header('Location: edit-project.php');
 
 ?>

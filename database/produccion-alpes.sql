@@ -20,7 +20,7 @@ SET time_zone = "+00:00";
 --
 -- Base de datos: `produccion-alpes`
 --
-CREATE DATABASE IF NOT EXISTS `produccion-alpes` DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci;
+CREATE DATABASE IF NOT EXISTS `produccion-alpes` DEFAULT CHARACTER SET utf8mb4;
 USE `produccion-alpes`;
 
 -- --------------------------------------------------------
@@ -41,7 +41,7 @@ CREATE TABLE IF NOT EXISTS `clientes` (
   `estado` text NOT NULL,
   `zip` int(10) NOT NULL,
   PRIMARY KEY (`id_usuario`)
-) ENGINE=InnoDB AUTO_INCREMENT=18 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=18 DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
@@ -56,7 +56,7 @@ CREATE TABLE IF NOT EXISTS `corte` (
   `fecha_terminacion` date NOT NULL,
   `fecha_inicio` date NOT NULL,
   `fecha_finalizacion` date DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Volcado de datos para la tabla `corte`
@@ -85,7 +85,7 @@ CREATE TABLE IF NOT EXISTS `empleados` (
   `password` varchar(50) NOT NULL,
   `puesto` text NOT NULL,
   PRIMARY KEY (`id_empleado`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
@@ -103,7 +103,7 @@ CREATE TABLE IF NOT EXISTS `proyectos` (
   `vendedor` text NOT NULL,
   `etapa` varchar(30) NOT NULL,
   PRIMARY KEY (`no_orden`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

@@ -6,10 +6,10 @@ session_start();
 $_SESSION['correo']=$correo;
 
 
-$conexion=mysqli_connect("localhost","root","","produccion-alpes");
+// $conn=mysqli_connect("localhost","root","","produccion-alpes");
 
 $consulta="SELECT*FROM empleados where correo='$correo' and password='$password'";
-$resultado=mysqli_query($conexion,$consulta);
+$resultado=mysqli_query($conn,$consulta);
 
 $filas=mysqli_num_rows($resultado);
 
@@ -27,4 +27,4 @@ if($filas){
   <?php
 }
 mysqli_free_result($resultado);
-mysqli_close($conexion);
+mysqli_close($conn);

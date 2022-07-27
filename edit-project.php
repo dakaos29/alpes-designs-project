@@ -1,3 +1,8 @@
+<?php
+include ("connectdb.php");
+$proyectos = "SELECT * FROM proyectos";
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -18,6 +23,7 @@
         <table data-vertable='ver1' class="table table-dark table-striped">
           					<br>
               				<h2 >TABLA DE PROYECTOS</h2>
+							<a href="projects-options.html"><i class="bi bi-arrow-left-square-fill h3"> Menu</i></a>
           					<br>
                         	<thead class="text-center">
 							<tr class='row100 head'>
@@ -29,18 +35,15 @@
                             <th scope="col-12">Vendor</th>
                             <th scope="col-12">Stage</th>
                             <th scope="col-12"></th>
+							<th scope="col-12"></th>
            					</tr>
 							</thead>   
               <tbody>
-<?php
-require('connectdb.php');
-?>
 
 <?php
 
-$sql = "SELECT * from proyectos order by no_orden DESC";
-$result = mysqli_query($conn, $sql);
-while($crow = mysqli_fetch_assoc($result))
+$resultado = mysqli_query($conn, $proyectos);
+while($crow = mysqli_fetch_assoc($resultado))
             			{	
 ?>
 <tr class='row100'>
@@ -51,10 +54,11 @@ while($crow = mysqli_fetch_assoc($result))
 <td><?php echo $crow['estado']; ?></td>
 <td><?php echo $crow['vendedor']; ?></td>
 <td><?php echo $crow['etapa']; ?></td>
-<td><a href="editar-registro.php?editar_no_orden=<?php echo $crow['no_orden']; ?>" class="edit_btn" >Editar</a></td>
+<td><a href="actualizar-proyecto.php?no_orden=<?php echo $crow['no_orden']; ?>" class="edit_btn" >Editar</a></td>
+<td><a href="borrar-proyecto.php?no_orden=<?php echo $crow['no_orden']; ?>" class="delete_btn" >Eliminar</a></td>
 </tr>
 <?php
-  	    	}		
+	} mysqli_free_result($resultado);	
 ?>
        	</tbody>
 	    	</table>             
@@ -63,8 +67,18 @@ while($crow = mysqli_fetch_assoc($result))
 	</div>
 	<div>
 	</div>
-	</div>
-	</div>
- 
+ <script>
+	function confirmacion(e){
+		if (confirm("Esta seguro que desea borrar este registro?")){
+			return true;
+		} else {
+			e.preventDefault();
+		}
+	}
+	let linkDelete = document.querySelectorAll(".delete_btn");
+	for (var i=0; i < linkDelete.length; i++) {
+		linkDelete[i].addEventListener('click', confirmacion);
+	}
+ </script>
 </body>
 </html>
